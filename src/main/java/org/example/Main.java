@@ -36,11 +36,10 @@ public class Main {
 //        searchButton.click();
 //        nav.navigateClose();
 
-        // Madison
+        // New Product List
         nav.navigateHomeQa2();
         nav.printProductsInList("body > div > div > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul");
-
-
+        nav.navigateClose();
 
 
 

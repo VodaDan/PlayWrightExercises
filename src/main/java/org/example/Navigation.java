@@ -56,14 +56,16 @@ public class Navigation {
         this.playwright.close();
     }
 
-    public void printProductsInList(String selector){
-        Locator list = this.page.locator("body > div > div > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul");
-        Locator options = list.locator("li");
+    public void printProductsInList(String selector) {
+        Locator list = this.page.locator(selector);
+        Locator options = list.locator("li.item");
         int numberOfProducts = options.count();
-        System.out.println(numberOfProducts + " options in list.");
-        for(int i = 0; i<=numberOfProducts; i++) {
-            String title = list.nth(i).getAttribute("value");
-            System.out.println((i+1)+". "+title);
+        System.out.println(numberOfProducts + " Options in list.");
+
+        for (int i = 0; i < numberOfProducts; i++) {
+            Locator linkLocator = options.nth(i).locator("a.product-image");
+            String title = linkLocator.getAttribute("title");
+            System.out.println((i + 1) + ". " + title);
         }
     }
 

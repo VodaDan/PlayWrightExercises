@@ -69,5 +69,29 @@ public class Navigation {
         }
     }
 
+    public void createLocatorAndClick(String selector){
+        Locator newLocator = this.page.locator(selector);
+        newLocator.click();
+    }
+
+    public void createLocatorAndHover(String selector){
+        Locator newLocator = this.page.locator(selector);
+        newLocator.click();
+    }
+
+    public void addConfigurableItemToCart(){
+        this.navigateHomeQa2();
+        createLocatorAndHover("#nav > ol > li.level0.nav-2.parent > a"); // man menu
+        createLocatorAndClick("#nav > ol > li.level0.nav-2.parent > ul > li.level1.nav-2-1.first > a"); // new arrivals
+        createLocatorAndClick("#product-collection-image-410"); // chelsee tee image
+        createLocatorAndClick("#swatch27 > span.swatch-label > img"); // blue color
+        createLocatorAndClick("#swatch79 > span.swatch-label"); // M
+        Locator qtyField = this.getPage().locator("#qty");
+        qtyField.fill("2");
+        createLocatorAndClick("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button"); // add to cart
+    }
+
+
+
 
 }
